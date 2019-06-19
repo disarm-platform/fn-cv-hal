@@ -1,7 +1,6 @@
 install.packages(c('jsonlite',
                    'geojsonio',
                  'origami',
-                 'parallel',
                  'devtools'))
 
 library(devtools)

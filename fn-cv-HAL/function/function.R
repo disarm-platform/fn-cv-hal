@@ -23,7 +23,7 @@ function(params) {
   folds_df_list <- lapply(folds_list, folds_list_to_df_list, df = points_df_train)
   
   # Now apply HAL to each fold in parallel 
-  cv_predictions <- mclapply(folds_df_list, FUN = fit_hal_parallel,
+  cv_predictions <- parallel::mclapply(folds_df_list, FUN = fit_hal_parallel,
                              mc.cores = detectCores() - 1,
                              X_var = layer_names,
                              n_pos_var = "n_positive",
