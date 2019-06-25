@@ -1,5 +1,6 @@
 install.packages(c('jsonlite',
                    'geojsonio',
+                   'ranger',
                    'origami',
                    'devtools'))
 
