@@ -19,6 +19,6 @@ fit_hal_parallel <- function(folds_df_list_fold,
              folds_df_list_fold$train[,n_pos_var])
   pred_data <- folds_df_list_fold$valid[,X_var]
   
-  hal_mod <- fit_hal(X, Y, family = "binomial")
+  hal_mod <- fit_hal(X, Y, family = "binomial", yolo = FALSE)
   predict(hal_mod, new_data = pred_data)
 }

@@ -37,7 +37,7 @@ function(params) {
   hal_fit <- fit_hal(X = points_df_train[,layer_names], 
                      Y = cbind(points_df_train$n_negative,
                                points_df_train$n_positive), 
-                     family = "binomial")
+                     family = "binomial", yolo = FALSE)
   points$fitted_predictions <- predict(hal_fit, new_data = points_df[,layer_names])
   points$cv_predictions <- NA
   points$cv_predictions[points_df_train$row_id[valid_indeces]] <- unlist(cv_predictions)
