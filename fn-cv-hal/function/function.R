@@ -69,6 +69,7 @@ function(params) {
     rf_fit <- ranger(rf_formula,
                      data = points_df_train,
                      probability = TRUE,
+                     importance = 'impurity',
                      case.weights = c(points_df_train$n_negative,
                                       points_df_train$n_positive))
     
@@ -77,5 +78,6 @@ function(params) {
     points$cv_predictions <- NA
     points$cv_predictions[points_df_train$row_id[valid_indeces]] <- unlist(cv_predictions)
   }
-  return(points)
+  return(list(points = points,
+              importance = data.frame(rf_fit$variable.importance)))
 }
