@@ -5,7 +5,7 @@ functions:
   fn-cv-hal:
     lang: dockerfile
     handler: ./fn-cv-hal
-    image: disarm/fn-cv-hal:0.0.3
+    image: disarm/fn-cv-hal:0.0.4
     environment:
       exec_timeout: 120
       write_timeout: 120
