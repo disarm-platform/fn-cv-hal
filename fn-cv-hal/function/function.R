@@ -5,7 +5,6 @@ library(parallel)
 source("function/helpers.R")
 
 function(params) {
-  
   # run function and catch result
   points <- params[['points']]
   layer_names <- params[['layer_names']]
@@ -78,6 +77,6 @@ function(params) {
     points$cv_predictions <- NA
     points$cv_predictions[points_df_train$row_id[valid_indeces]] <- unlist(cv_predictions)
   }
-  return(list(points = points,
+  return(list(points = geojson_list(points),
               importance = data.frame(rf_fit$variable.importance)))
 }
