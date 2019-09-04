@@ -2,10 +2,10 @@ provider:
   name: faas
   gateway: https://faas.srv.disarm.io
 functions:
-  fn-cv-hal:
+  fn-cv-ml:
     lang: dockerfile
-    handler: ./fn-cv-hal
-    image: disarm/fn-cv-hal:0.0.4
+    handler: ./fn-cv-ml
+    image: disarm/fn-cv-ml:0.0.4
     environment:
       exec_timeout: 120
       write_timeout: 120

@@ -1,4 +1,4 @@
-# fn-cv-hal
+# fn-cv-ml
 
 Provided a GeoJSON of points with numbers examined and numbers positive, as well as a GeoJSON of prediction points, this function fits a highly adaptive lasso using 10-fold cross validation
 
