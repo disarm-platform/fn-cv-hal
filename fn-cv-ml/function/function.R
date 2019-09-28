@@ -19,6 +19,7 @@ function(params) {
   points_df_train <- points_df[with_data,]
   
   # Create folds
+  set.seed(1981)
   folds_list <- origami::make_folds(points_df_train)
   folds_df_list <- lapply(folds_list, folds_list_to_df_list, df = points_df_train)
   
