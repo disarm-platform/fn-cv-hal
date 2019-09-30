@@ -5,6 +5,8 @@ library(parallel)
 source("function/helpers.R")
 
 function(params) {
+  
+  seed <- 1981
   # run function and catch result
   points <- params[['points']]
   layer_names <- params[['layer_names']]
@@ -19,7 +21,7 @@ function(params) {
   points_df_train <- points_df[with_data,]
   
   # Create folds
-  set.seed(1981)
+  set.seed(seed)
   folds_list <- origami::make_folds(points_df_train)
   folds_df_list <- lapply(folds_list, folds_list_to_df_list, df = points_df_train)
   

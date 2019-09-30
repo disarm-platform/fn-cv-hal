@@ -41,6 +41,7 @@ fit_rf_parallel <- function(folds_df_list_fold,
   
   rf_formula <- as.formula(paste("Y", "~", paste(X_var, collapse = "+")))
   rf_mod <- ranger(rf_formula,
+                   seed = 1981,
                           data = mod_data,
                           probability = TRUE,
                           case.weights = c(folds_df_list_fold$train$n_negative,
