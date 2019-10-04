@@ -65,8 +65,9 @@ function(params) {
     Y <- factor(c(rep(0, nrow(points_df_train)),
                   rep(1, nrow(points_df_train))))
     
-    X <- points_df_train[,layer_names]
+    X <- as.data.frame(points_df_train[,layer_names])
     X <- rbind(X, X)
+    names(X) <- layer_names
     rf_formula <- as.formula(paste("Y", "~", paste(layer_names, collapse = "+")))
     rf_fit <- ranger(rf_formula,
                      data = points_df_train,
@@ -75,7 +76,9 @@ function(params) {
                      case.weights = c(points_df_train$n_negative,
                                       points_df_train$n_positive))
     
-    fitted_predictions <- predict(rf_fit, points_df[,layer_names])
+    pred_data <- as.data.frame(points_df[,layer_names])
+    names(pred_data) <- layer_names
+    fitted_predictions <- predict(rf_fit, pred_data)
     points$fitted_predictions <- fitted_predictions$predictions[,2]
     points$cv_predictions <- NA
     points$cv_predictions[points_df_train$row_id[valid_indeces]] <- unlist(cv_predictions)

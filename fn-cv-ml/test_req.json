@@ -8726,9 +8726,6 @@
     ]
   },
   "layer_names": [
-    "elev_m",
-    "dist_to_water_m",
-    "bioclim1",
-    "bioclim4"
+    "elev_m"
   ]
 }
